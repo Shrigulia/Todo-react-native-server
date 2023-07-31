@@ -8,8 +8,8 @@ const sendCookie = async (user, res, message, statusCode = 200) => {
     // loging in 
     res.status(statusCode).cookie("token", token, {
         httpOnly: true,
-        sameSite: "lax", // in  development mode
-        secure: false, //in development
+        sameSite: "none", // in  development mode
+        secure: true, //in development
         expires: new Date(
             Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
         )
